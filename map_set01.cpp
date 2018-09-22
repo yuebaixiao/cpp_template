@@ -69,11 +69,11 @@ int main(){
   */
 
   //test4 自定义关键字类型的比较函数,函数方式
-  /*
-  //multiset<Book, decltype(compareIsbn)*>
-  //  bookstore(compareIsbn);
-  multiset<Book, bool (*)(const Book &, const Book &)>
+  ///*
+  multiset<Book, decltype(compareIsbn)*>
     bookstore(compareIsbn);
+  //multiset<Book, bool (*)(const Book &, const Book &)>
+  //  bookstore(compareIsbn);
   vector<Book> books;
   for(char c = '5'; c != '1'; --c){
     string tmp = "isbn_0";
@@ -85,13 +85,16 @@ int main(){
   }
   cout << endl;
   bookstore.insert(books.cbegin(), books.cend());
+  multiset<Book, decltype(compareIsbn)*>::iterator beg = bookstore.begin();
+  cout << beg->getIsbn() << endl;
   for(auto const &s : bookstore){
     cout << s.getIsbn() << " ";
   }
   cout << endl;
-  */
+ 
 
   //test5 自定义关键字类型的比较函数,重载<方式
+  /*
   multiset<Student> students;
   Student s1("C", 3);
   Student s2("A", 5);
@@ -102,4 +105,5 @@ int main(){
   for(auto const &s : students){
     cout << s.name << ": " << s.age << endl;
   }
+  */
 }
